@@ -1,9 +1,4 @@
-/nbproject/private/
+/vendor/*
 /config/app.php
 /tmp/*
 /logs/*
-/nbproject/*
-/webroot/uploads/*
-/config/notes.txt
-/src/Template/Layout/_backup/
-/src/Controller/_backup/
