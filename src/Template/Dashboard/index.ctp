@@ -1795,3 +1795,4 @@
 
 </div>
 <!-- /page container -->
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/pages/dashboard.js', ['fullBase' => true]) ?>"></script>

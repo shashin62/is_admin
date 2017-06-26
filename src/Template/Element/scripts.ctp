@@ -15,6 +15,9 @@
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/forms/selects/bootstrap_multiselect.js' , ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/ui/moment/moment.min.js' , ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/pickers/daterangepicker.js' , ['fullBase' => true]) ?>"></script>
-
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/forms/selects/select2.min.js' , ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/uploaders/fileinput.min.js' , ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/pages/uploader_bootstrap.js' , ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/forms/validation/validate.min.js', ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/core/app.js' , ['fullBase' => true]) ?>"></script>
 <!-- /theme JS files -->
