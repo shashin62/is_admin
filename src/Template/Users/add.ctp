@@ -25,7 +25,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <?= $this->Form->create(null, ['class' => 'form-validate-jquery form-horizontal']) ?>
+                    <?= $this->Form->create(null, ['class' => 'form-validate-jquery form-horizontal', 'id' => 'frm_main', 'name' => 'frm_main', 'url' => '/users/add']) ?>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-flat">
@@ -50,37 +50,37 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Firstname<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("firstname", ['length' => 255, 'maxlength' => 255, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("firstname", ['length' => 255, 'maxlength' => 255, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Lastname<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("lastname", ['length' => 255, 'maxlength' => 255, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("lastname", ['length' => 255, 'maxlength' => 255, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Mobile<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("mobile", ['length' => 10, 'maxlength' => 10, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("mobile", ['length' => 10, 'maxlength' => 10, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Email<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->email("email", ['length' => 255, 'maxlength' => 255, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->email("email", ['length' => 255, 'maxlength' => 255, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">PAN<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("pan", ['length' => 10, 'maxlength' => 10, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("pan", ['length' => 10, 'maxlength' => 10, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">AADHAR<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("aadhar", ['length' => 12, 'maxlength' => 12, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("aadhar", ['length' => 12, 'maxlength' => 12, "required" => true, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Group<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->select('group_id', $groups, ['empty' => 'Select group', 'id' => 'group_id', 'class' => 'select']) ?>
+                                            <?= $this->Form->select('group_id', $groups, ['empty' => 'Select group', 'id' => 'group_id', "required" => true, 'class' => 'select']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -104,7 +104,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Status<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->select('status', [1 => "Active", 0 => "Inactive"], ['empty' => 'Select status', 'required' => false, 'class' => 'select']) ?>
+                                            <?= $this->Form->select('status', [1 => "Active", 0 => "Inactive"], ['id' => 'status', 'empty' => 'Select status', 'required' => true, 'class' => 'select']) ?>
                                         </div>
                                     </div>
                                     <div class="text-right">

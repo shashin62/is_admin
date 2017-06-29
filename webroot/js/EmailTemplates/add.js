@@ -68,10 +68,8 @@ $(function () {
         },
         rules: {
             name: {
-                regex: "^[a-zA-Z 0-9_]*$"
-            },
-            description: {
-                maxlength: 1024
+                regex: "^[a-zA-Z 0-9_]*$",
+                maxlength: 50
             }
         },
         messages: {
@@ -79,7 +77,7 @@ $(function () {
                 required: "This is a custom error message"
             },
             name: {
-               regex : "Please check you input. Only alphanumeric characters with blanks and underscore _ allowed."
+                regex: "Please check you input. Only alphanumeric characters with blanks and underscore _ allowed."
             },
             agree: "Please accept our policy"
         }
@@ -92,6 +90,6 @@ $(function () {
 
     $('.select').select2()
             .on("change", function (e) {
-                validator.element(".select");
+                validator.element("#status");
             });
 });

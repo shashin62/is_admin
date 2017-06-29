@@ -18,7 +18,7 @@ class DashboardController extends AppController {
      * @return \Cake\Http\Response|void
      */
     public function index() {
-        $this->set('title', 'Admin panel');
+        $this->set('title', 'Admin Panel');
     }
 
 }

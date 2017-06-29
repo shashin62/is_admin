@@ -39,14 +39,14 @@ class UsersTable extends Table {
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Groups', [
-            'foreignKey' => 'group_id',
-            'joinType' => 'INNER'
-        ]);
+//        $this->belongsTo('Groups', [
+//            'foreignKey' => 'group_id',
+//            'joinType' => 'INNER'
+//        ]);
     }
 
     public function findAuth(Query $query, array $options) {
-        $query->select(['id', 'username', 'password', 'firstname', 'lastname', 'group_id', 'is_admin_panel', 'status'])->where(['Users.status' => 1]);
+        $query->select(['id', 'email', 'password', 'firstname', 'lastname', 'group_id', 'is_admin_panel', 'status'])->where(['Users.status' => 1]);
         return $query;
     }
 
@@ -58,70 +58,14 @@ class UsersTable extends Table {
      */
     public function validationDefault(Validator $validator) {
         $validator
-                ->integer('id')
-                ->allowEmpty('id', 'create');
-
-        $validator
                 ->email('email')
                 ->requirePresence('email', 'create')
                 ->notEmpty('email')
                 ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-                ->allowEmpty('address');
-
-        $validator
                 ->requirePresence('password', 'create')
                 ->notEmpty('password');
-
-        $validator
-                ->allowEmpty('firstname');
-
-        $validator
-                ->allowEmpty('formername');
-
-        $validator
-                ->allowEmpty('lastname');
-
-        $validator
-                ->allowEmpty('headline');
-
-        $validator
-                ->integer('industry')
-                ->requirePresence('industry', 'create')
-                ->notEmpty('industry');
-
-        $validator
-                ->allowEmpty('summary');
-
-        $validator
-                ->allowEmpty('photo');
-
-        $validator
-                ->integer('is_deleted')
-                ->requirePresence('is_deleted', 'create')
-                ->notEmpty('is_deleted');
-
-        $validator
-                ->integer('is_admin_panel')
-                ->requirePresence('is_admin_panel', 'create')
-                ->notEmpty('is_admin_panel');
-
-        $validator
-                ->allowEmpty('forgot_token');
-
-        $validator
-                ->allowEmpty('access_token');
-
-        $validator
-                ->dateTime('last_login')
-                ->requirePresence('last_login', 'create')
-                ->notEmpty('last_login');
-
-        $validator
-                ->integer('status')
-                ->requirePresence('status', 'create')
-                ->notEmpty('status');
 
         return $validator;
     }

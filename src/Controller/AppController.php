@@ -57,38 +57,40 @@ class AppController extends Controller {
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
         #140477591
-//        $this->loadComponent('Auth', [
-//            'authenticate' => [
-//                'Form' => [
-//                    'fields' => ['username' => 'email', 'password' => 'password'],
-//                    'finder' => 'auth'
-//                ]
-//            ],
-//            'loginAction' => [
-//                'controller' => 'Auth',
-//                'action' => 'login',
-//                'plugin' => false,
-//            ],
-//            'loginRedirect' => [
-//                'controller' => 'Dashboard',
-//                'action' => 'index',
-//                'plugin' => false
-//            ],
-//            'logoutRedirect' => [
-//                'controller' => 'Auth',
-//                'action' => 'login',
-//                'plugin' => false
-//            ],
-//            'unauthorizedRedirect' => [
-//                'controller' => 'Auth',
-//                'action' => 'login',
-//                'prefix' => false
-//            ],
-//            'authError' => 'Session Timeout. Please sign-in first....',
-//            'flash' => [
-//                'element' => 'error'
-//            ]
-//        ]);
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password'],
+                    'finder' => 'auth'
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Auth',
+                'action' => 'login',
+                'plugin' => false,
+            ],
+            'loginRedirect' => [
+                'controller' => 'Dashboard',
+                'action' => 'index',
+                'plugin' => false
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Auth',
+                'action' => 'login',
+                'plugin' => false
+            ],
+            'unauthorizedRedirect' => [
+                'controller' => 'Auth',
+                'action' => 'login',
+                'prefix' => false
+            ],
+            'authError' => 'Session Timeout. Please sign-in first....',
+            'flash' => [
+                'element' => 'error'
+            ]
+        ]);
+        
+        $this->loadComponent('Access');
     }
 
     /**

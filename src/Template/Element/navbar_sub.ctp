@@ -26,6 +26,18 @@
                     <li><a href="<?= $this->Url->build([ 'controller' => 'Permissions', 'action' => 'group']) ?>"><i class="icon-indent-increase"></i> Group Permissions</a></li>
                 </ul>
             </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-gear position-left"></i> Settings Master <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu width-250">
+                    <li class="dropdown-header">Email management</li>
+                    <li><a href="<?= $this->Url->build([ 'controller' => 'EmailTemplates', 'action' => 'add']) ?>"><i class="icon-file-plus2"></i> Add Template</a></li>
+                    <li><a href="<?= $this->Url->build([ 'controller' => 'EmailTemplates', 'action' => 'index']) ?>"><i class="icon-file-text3"></i> Manage Templates</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

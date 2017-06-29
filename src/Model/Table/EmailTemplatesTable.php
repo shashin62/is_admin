@@ -8,21 +8,19 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Groups Model
+ * EmailTemplates Model
  *
- * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\HasMany $Users
- *
- * @method \App\Model\Entity\Group get($primaryKey, $options = [])
- * @method \App\Model\Entity\Group newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Group[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Group|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Group patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Group[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Group findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\EmailTemplate get($primaryKey, $options = [])
+ * @method \App\Model\Entity\EmailTemplate newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\EmailTemplate[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\EmailTemplate|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\EmailTemplate patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\EmailTemplate[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\EmailTemplate findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class GroupsTable extends Table {
+class EmailTemplatesTable extends Table {
 
     /**
      * Initialize method
@@ -33,7 +31,7 @@ class GroupsTable extends Table {
     public function initialize(array $config) {
         parent::initialize($config);
 
-        $this->setTable('groups');
+        $this->setTable('email_templates');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
@@ -50,10 +48,7 @@ class GroupsTable extends Table {
         $validator
                 ->requirePresence('name', 'create')
                 ->notEmpty('name')
-                ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Group name already in use. Try different name.']);
-
-        $validator
-                ->allowEmpty('description');
+                ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Template name already in use. Try different name.']);
 
         return $validator;
     }

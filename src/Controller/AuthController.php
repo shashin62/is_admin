@@ -31,7 +31,6 @@ class AuthController extends AppController {
             } else if (trim($this->request->data['password']) == '') {
                 $message = 'Please enter password';
             }
-
             $user = $this->Auth->identify();
             if ($user) {
                 // #141390803
