@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="form-group">
-                    <?php echo $this->Form->button("Sign in <i class='icon-circle-right2 position-right'></i>", ["type" => "submit", "class" => "btn btn-primary btn-block"]) ?>
+                    <button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
                 </div>
 
                 <div class="text-center">

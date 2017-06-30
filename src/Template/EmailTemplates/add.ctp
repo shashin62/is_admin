@@ -40,33 +40,70 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Name<span class="text-danger">*</span></label>
-                                        <div class="col-lg-9">
-                                            <?= $this->Form->text("name", ['length' => 50, 'maxlength' => 50, "required" => true, 'class' => 'form-control']) ?>
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                                            <li class="active"><a href="#highlighted-tab1" data-toggle="tab">Add Template</a></li>
+                                            <li><a href="#highlighted-tab2" data-toggle="tab">Template Help</a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="highlighted-tab1">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+                                                            <label class="col-lg-3 control-label">Name<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-9">
+                                                                <?= $this->Form->text("name", ['length' => 50, 'maxlength' => 50, "required" => true, 'class' => 'form-control']) ?>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-3 control-label">Subject<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-9">
+                                                                <?= $this->Form->text("subject", ['length' => 255, 'maxlength' => 255, "required" => true, 'class' => 'form-control']) ?>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-3 control-label">Content</label>
+                                                            <div class="col-lg-9">
+                                                                <?= $this->Form->textarea("content", ["required" => false, 'class' => 'wysihtml5 wysihtml5-default form-control']) ?>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-3 control-label">Status<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-9">
+                                                                <?= $this->Form->select('status', [1 => "Active", 0 => "Inactive"], ['id' => 'status', 'empty' => 'Select status', 'required' => true, 'class' => 'select']) ?>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-right">
+                                                            <button type="reset" class="btn btn-default" id="reset">Reset <i class="icon-reload-alt position-right"></i></button>
+                                                            <button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="highlighted-tab2">
+                                                <div class="panel panel-flat">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title">Available options for template builder</h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <ul class="list-feed">
+                                                            <?php
+                                                            foreach ($tags as $tag) {
+                                                                $html = '';
+                                                                $html.= '<li>';
+                                                                $html.= '<a href="#">' . $tag->tag . '</a> ' . $tag->description;
+                                                                $html.= '</li>';
+                                                                echo $html;
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>   
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Content</label>
-                                        <div class="col-lg-9">
-                                            <?= $this->Form->textarea("content", ["required" => false, 'class' => 'wysihtml5 wysihtml5-default form-control']) ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Pre-defined tags</label>
-                                        <div class="col-lg-9">
-                                            <?= $this->Form->select('tags', $tags, ['empty' => 'Select tag', "required" => false, 'class' => 'select']) ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Status<span class="text-danger">*</span></label>
-                                        <div class="col-lg-9">
-                                            <?= $this->Form->select('status', [1 => "Active", 0 => "Inactive"], ['id' => 'status', 'empty' => 'Select status', 'required' => true, 'class' => 'select']) ?>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <button type="reset" class="btn btn-default" id="reset">Reset <i class="icon-reload-alt position-right"></i></button>
-                                        <button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
                                     </div>
                                 </div>
                             </div>

@@ -46,9 +46,17 @@ class EmailTemplatesTable extends Table {
      */
     public function validationDefault(Validator $validator) {
         $validator
-                ->requirePresence('name', 'create')
-                ->notEmpty('name')
-                ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Template name already in use. Try different name.']);
+                ->requirePresence('name')
+                ->notEmpty('name');
+
+        $validator
+                ->requirePresence('subject')
+                ->notEmpty('subject');
+
+        $validator
+                ->requirePresence('unique_name', 'create')
+                ->notEmpty('unique_name')
+                ->add('unique_name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Template name already in use. Try different name.']);
 
         return $validator;
     }

@@ -120,8 +120,13 @@ $(function () {
             .on("change", function (e) {
                 validator.element("#status");
                 validator.element("#group_id");
+                validator.element("#type");
             });
 
+    $(document).on('change', '#type', function () {
+         alert(this.value);
+    });
+    
     // Modal template
     var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
             '  <div class="modal-content">\n' +

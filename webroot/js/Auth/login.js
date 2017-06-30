@@ -55,27 +55,9 @@ $(function () {
             label.addClass("validation-valid-label").text("Success.");
         },
         rules: {
-            password: {
-                minlength: 5
-            },
-            repeat_password: {
-                equalTo: "#password"
-            },
             email: {
                 email: true
             }
-        },
-        messages: {
-            custom: {
-                required: "This is a custom error message"
-            },
-            agree: "Please accept our policy"
         }
-    });
-
-
-    // Reset form
-    $('#reset').on('click', function () {
-        validator.resetForm();
     });
 });

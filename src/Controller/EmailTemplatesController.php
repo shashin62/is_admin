@@ -15,7 +15,7 @@ class EmailTemplatesController extends AppController {
 
     public function initialize() {
         parent::initialize();
-        $this->loadModel('EmailHashtags');
+        $this->loadModel('EmailHashtags');    
         $this->loadComponent('Common');
     }
 
@@ -55,6 +55,7 @@ class EmailTemplatesController extends AppController {
     public function add() {
         $emailTemplate = $this->EmailTemplates->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['unique_name'] = strtolower(str_replace(' ', '_', $this->request->data['name']));
             $emailTemplate = $this->EmailTemplates->patchEntity($emailTemplate, $this->request->getData());
             if ($this->EmailTemplates->save($emailTemplate)) {
                 $this->Flash->success(__('The email template has been saved.'));
@@ -65,15 +66,10 @@ class EmailTemplatesController extends AppController {
         }
 
         $tags = $this->EmailHashtags->find('all', [
-            'order' => ['EmailHashtags.tags' => 'asc']
+            'order' => ['EmailHashtags.tag' => 'asc']
         ]);
 
-        $result = [];
-        foreach ($tags as $value) {
-            $result[$value['id']] = $value['description'].' ['.$value['tag'].']';
-        }
-
-        $this->set('tags', $result);
+        $this->set('tags', $tags);
         $this->set(compact('emailTemplate'));
         $this->set('_serialize', ['emailTemplate']);
     }

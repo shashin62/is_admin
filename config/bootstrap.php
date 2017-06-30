@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -12,7 +13,6 @@
  * @since         0.10.8
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 // You can remove this if you are confident that your PHP version is sufficient.
 if (version_compare(PHP_VERSION, '5.6.0') < 0) {
     trigger_error('Your PHP version must be equal or higher than 5.6.0 to use CakePHP.', E_USER_ERROR);
@@ -63,7 +63,6 @@ use Cake\Mailer\Email;
 use Cake\Network\Request;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
-
 // Updated with ref. to #140916499, changed default date in cake/orm entity
 // as found on http://stackoverflow.com/questions/26561226/cakephp-3-displaying-date-without-time
 use Cake\I18n\FrozenDate;
@@ -83,6 +82,8 @@ FrozenTime::setToStringFormat('yyyy-MM-dd HH:mm:ss');
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
+    Configure::write('EMAIL_FROM_ADDRESS', 'helpdesk@v2solutions.com');
+    Configure::write('EMAIL_FROM_NAME', 'Helpdesk');
 } catch (\Exception $e) {
     exit($e->getMessage() . "\n");
 }
@@ -193,13 +194,13 @@ Request::addDetector('tablet', function ($request) {
  * @link http://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
 Type::build('time')
-    ->useImmutable();
+        ->useImmutable();
 Type::build('date')
-    ->useImmutable();
+        ->useImmutable();
 Type::build('datetime')
-    ->useImmutable();
+        ->useImmutable();
 Type::build('timestamp')
-    ->useImmutable();
+        ->useImmutable();
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize

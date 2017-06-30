@@ -13,6 +13,13 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController {
 
+    public function initialize() {
+        parent::initialize();
+        $this->loadModel('EmailTemplates');
+        $this->loadModel('Groups');
+        $this->loadComponent('Common');
+    }
+
     /**
      * Index method
      *
@@ -53,6 +60,8 @@ class UsersController extends AppController {
         $this->set('title', 'Add User');
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+            $autoPassword = $this->Common->generatePassword(10);
+            $this->request->data['password'] = $autoPassword;
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $aro = $this->Acl->Aro->newEntity();
@@ -65,30 +74,13 @@ class UsersController extends AppController {
 
                 if ($this->Acl->Aro->save($aro)) {
 
-                    
-                    
-                    //Send email to user 
-                    $emailTemplateTable = TableRegistry::get('email_templates');
-                    $email_data = $emailTemplateTable->find('all')->where(['unique_name' => 'USER_FROM_ADMIN'])->toArray();
+                    // Preparing new user registration email
+                    $email_data = $this->EmailTemplates->find('all')->where(['unique_name' => 'new_user_registration'])->toArray();
+                    $email_content = $this->Common->replaceEmailHashtags($email_data[0]['content'], $user->id);
+                    $email_content = str_replace('#password#', $autoPassword, $email_content);
 
-                    $email_content = $this->Common->modifyEmailContent($email_data[0]['content'], $user->id);
-
-                    $temp['email'] = $this->request->data('email');
-                    $temp['subject'] = $email_data[0]['name'];
-
-                    if (stripos($email_content, "WEBSITE_LINK") !== false) {
-                        $replace_with = $this->Common->getSettings('front', 'WEBSITE_LINK');
-                        $email_content = str_ireplace("{{WEBSITE_LINK}}", $replace_with, $email_content);
-                    }
-
-                    if (stripos($email_content, "PASSWORD") !== false) {
-                        $replace_with = $autoPassword;
-                        $email_content = str_ireplace("{{PASSWORD}}", $replace_with, $email_content);
-                    }
-
-                    $temp['message'] = $email_content;
-                    $response = $this->Common->sendMail($temp);
-
+                    // TODO: Custom CC BCC Templates 
+                    $response = $this->Common->sendMail($user->email, $email_data[0]['subject'], $email_content);
 
                     $this->Flash->success(__('The user has been saved.'));
                     return $this->redirect(['action' => 'index']);
@@ -96,18 +88,17 @@ class UsersController extends AppController {
                     $this->Users->delete($user);
                     $this->Flash->error(__('The user aro could not be saved. Please, try again.'));
                 }
-
-
-
-
-
-                $this->Flash->success(__('The user has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+            } else {
+                if ($user->errors()) {
+                    $this->Flash->error(__($this->Common->toastErrorMessages($user->errors())), ['escape' => false]);
+                } else {
+                    $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                }
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $groups = $this->Users->find('list', ['limit' => 200]);
+
+
+        $groups = $this->Common->combineToSelect($this->Groups->find('all')->where(['id !=' => 1])->toArray(), 'id', 'name');
         $this->set(compact('user', 'groups'));
         $this->set('_serialize', ['user']);
     }

@@ -84,9 +84,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-lg-3 control-label">Type</label>
+                                        <div class="col-lg-9">
+                                            <?= $this->Form->select('type', ['broker' => "Broker", 'builder' => "Builder", 'other' => 'Other'], ['empty' => 'Select type', 'id' => 'type', "required" => true, 'class' => 'select']) ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-lg-3 control-label">RERA</label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("aadhar", ['length' => 50, 'maxlength' => 50, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("rera", ['length' => 50, 'maxlength' => 50, "required" => false, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
