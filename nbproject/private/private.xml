@@ -3,20 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/webroot/editor_wysihtml5.html</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Model/Table/GroupsTable.php</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Element/navbar_sub.ctp</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Users/add.ctp</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Controller/AuthController.php</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Controller/EmailTemplatesController.php</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Element/scripts.ctp</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/webroot/assets/js/pages/editor_wysihtml5.js</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Model/Table/EmailTemplatesTable.php</file>
             <file>file:/D:/xampp7.0/htdocs/is_admin/src/Controller/Component/CommonComponent.php</file>
             <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/EmailTemplates/add.ctp</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Model/Entity/EmailHashtag.php</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Element/navbar_sub.ctp</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Users/add.ctp</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/webroot/js/Users/add.js</file>
             <file>file:/D:/xampp7.0/htdocs/is_admin/src/Controller/UsersController.php</file>
-            <file>file:/D:/xampp7.0/htdocs/is_admin/webroot/js/EmailTemplates/add.js</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Template/Element/scripts.ctp</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/config/bootstrap.php</file>
+            <file>file:/D:/xampp7.0/htdocs/is_admin/src/Controller/GroupsController.php</file>
         </group>
     </open-files>
 </project-private>

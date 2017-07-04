@@ -124,9 +124,13 @@ $(function () {
             });
 
     $(document).on('change', '#type', function () {
-         alert(this.value);
+        if (this.value == 'builder' || this.value == 'broker')
+            $('#rera').prop('required', true);
+        else
+            $('#rera').prop('required', false);
+        validator.element("#rera");
     });
-    
+
     // Modal template
     var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
             '  <div class="modal-content">\n' +

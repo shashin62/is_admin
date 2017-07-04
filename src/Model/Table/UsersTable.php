@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * Users Model
@@ -39,10 +40,21 @@ class UsersTable extends Table {
 
         $this->addBehavior('Timestamp');
 
-//        $this->belongsTo('Groups', [
-//            'foreignKey' => 'group_id',
-//            'joinType' => 'INNER'
-//        ]);
+        $this->belongsTo('Groups', [
+            'foreignKey' => 'group_id',
+            'joinType' => 'INNER'
+        ]);
+    }
+
+    public function beforeSave($event, $entity, $options) {
+
+        if ($entity->action == 'add') {
+            // Set hash password
+            $hasher = new DefaultPasswordHasher;
+            $entity->password = $hasher->hash($entity->password);
+        }
+
+        return true;
     }
 
     public function findAuth(Query $query, array $options) {

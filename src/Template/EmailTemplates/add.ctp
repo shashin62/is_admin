@@ -94,7 +94,7 @@
                                                             foreach ($tags as $tag) {
                                                                 $html = '';
                                                                 $html.= '<li>';
-                                                                $html.= '<a href="#">' . $tag->tag . '</a> ' . $tag->description;
+                                                                $html.= '' . $tag->tag . ' - ' . $tag->description;
                                                                 $html.= '</li>';
                                                                 echo $html;
                                                             }

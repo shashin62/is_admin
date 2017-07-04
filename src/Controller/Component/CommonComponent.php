@@ -94,14 +94,15 @@ class CommonComponent extends Component {
         return $result;
     }
 
-    public function replaceEmailHashtags($content, $user_id = null) {
+    public function replaceEmailHashtags($content, $user_id = null, $order_id = null) {
         if ($user_id != null) {
             $user_data = $this->Users->find('all')->where(['id' => $user_id])->toArray();
             $hash_tags = $this->EmailHashtags->find('all')->where(['type' => 'User'])->toArray();
             foreach ($hash_tags as $tag) {
-                $content = str_replace($tag['tag'], $user_data[0][$tag['tag']], $content);
+                $content = str_replace($tag['tag'], $user_data[0][str_replace('#', '', $tag['tag'])], $content);
             }
         }
+
 
         $content = str_replace('#admin_panel_link#', Router::url(['controller' => 'Dashboard', 'action' => 'index', '_full' => true]), $content);
 
@@ -116,6 +117,19 @@ class CommonComponent extends Component {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    public function timestampFile($fileName) {
+        print_r(pathinfo($fileName));
+        return preg_replace("/[\.\s]/", "", microtime()) . "." . pathinfo($fileName)["extension"];
+    }
+
+    public function resultJSON($status, $message, $params = array()) {
+        $result = array();
+        $result["status"] = $status;
+        $result["message"] = $message;
+        $result["params"] = $params;
+        return json_encode($result);
     }
 
 }

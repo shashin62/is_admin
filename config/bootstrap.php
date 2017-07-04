@@ -84,6 +84,7 @@ try {
     Configure::load('app', 'default', false);
     Configure::write('EMAIL_FROM_ADDRESS', 'helpdesk@v2solutions.com');
     Configure::write('EMAIL_FROM_NAME', 'Helpdesk');
+    Configure::write('USER_PHOTO_UPLOAD_PATH', '/uploads/user_photo/');
 } catch (\Exception $e) {
     exit($e->getMessage() . "\n");
 }

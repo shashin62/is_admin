@@ -25,7 +25,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <?= $this->Form->create(null, ['class' => 'form-validate-jquery form-horizontal', 'id' => 'frm_main', 'name' => 'frm_main', 'url' => '/users/add']) ?>
+                    <?= $this->Form->create(null, ['type' => 'file', 'class' => 'form-validate-jquery form-horizontal', 'id' => 'frm_main', 'name' => 'frm_main', 'url' => '/users/add']) ?>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-flat">
@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Photograph</label>
                                         <div class="col-lg-4">
-                                            <input type="file" class="file-input" data-show-caption="false" data-show-upload="false" data-browse-class="btn btn-primary" data-remove-class="btn btn-default">
+                                            <input type="file" class="file-input" name="photo" data-show-caption="false" data-show-upload="false" data-browse-class="btn btn-primary" data-remove-class="btn btn-default">
                                             <span class="help-block">Only <code>jpg</code>, <code>gif</code> and <code>png</code> extensions are allowed.</span>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">RERA</label>
                                         <div class="col-lg-9">
-                                            <?= $this->Form->text("rera", ['length' => 50, 'maxlength' => 50, "required" => false, 'class' => 'form-control']) ?>
+                                            <?= $this->Form->text("rera", ['id' => 'rera', 'length' => 50, 'maxlength' => 50, "required" => false, 'class' => 'form-control']) ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
