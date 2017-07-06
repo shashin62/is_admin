@@ -118,9 +118,7 @@ $(function () {
 
     $('.select').select2()
             .on("change", function (e) {
-                validator.element("#status");
-                validator.element("#group_id");
-                validator.element("#type");
+                validator.element(this);
             });
 
     $(document).on('change', '#type', function () {

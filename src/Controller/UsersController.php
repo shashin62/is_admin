@@ -68,7 +68,6 @@ class UsersController extends AppController {
             // Adding internal user
             $this->request->data['is_admin_panel'] = 1;
             $archiveName = $this->Common->timestampFile($this->request->data('photo')["name"]);
-            echo WWW_ROOT . Configure::read()['USER_PHOTO_UPLOAD_PATH'] . $archiveName;
             if (move_uploaded_file($this->request->data('photo')["tmp_name"], WWW_ROOT . Configure::read()['USER_PHOTO_UPLOAD_PATH'] . $archiveName) === false) {
                 echo $this->Common->resultJSON("failed", "Internal file upload error. Please try again!");
                 exit;

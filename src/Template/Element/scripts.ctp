@@ -25,5 +25,11 @@
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/editors/wysihtml5/parsers.js', ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/editors/wysihtml5/locales/bootstrap-wysihtml5.ua-UA.js', ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/notifications/jgrowl.min.js', ['fullBase' => true]) ?>"></script> 
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/core/libraries/jquery_ui/core.min.js', ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/core/libraries/jquery_ui/effects.min.js', ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/core/libraries/jquery_ui/interactions.min.js', ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/extensions/cookie.js', ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/trees/fancytree_all.min.js', ['fullBase' => true]) ?>"></script>
+<script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/plugins/trees/fancytree_childcounter.js', ['fullBase' => true]) ?>"></script>
 <script type="text/javascript" src="<?php echo $this->Url->build('/assets/js/core/app.js', ['fullBase' => true]) ?>"></script>
 <!-- /theme JS files -->

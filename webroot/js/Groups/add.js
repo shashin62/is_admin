@@ -79,7 +79,7 @@ $(function () {
                 required: "This is a custom error message"
             },
             name: {
-               regex : "Please check you input. Only alphanumeric characters with blanks and underscore _ allowed."
+                regex: "Please check you input. Only alphanumeric characters with blanks and underscore _ allowed."
             },
             agree: "Please accept our policy"
         }
@@ -92,6 +92,6 @@ $(function () {
 
     $('.select').select2()
             .on("change", function (e) {
-                validator.element(".select");
+                validator.element(this);
             });
 });
