@@ -289,6 +289,7 @@ $(function() {
             data.result = {url: "ajax-sub2.json"}
         },
         renderColumns: function(event, data) {
+            console.log(data);
             var node = data.node,
             $tdList = $(node.tr).find(">td");
 

@@ -35,6 +35,8 @@ class AuthController extends AppController {
             if ($user) {
                 // #141390803
                 if ($user["is_admin_panel"] == 1) {
+                    $user["aro_group_key"] = $this->Access->get_aro_keys('Groups', $user["group_id"])[$user["group_id"]];
+                    $user["aro_user_key"] = $this->Access->get_aro_keys('Users', $user["id"])[$user["id"]];
                     $this->Auth->setUser($user);
                     return $this->redirect($this->Auth->redirectUrl());
                 } else {
